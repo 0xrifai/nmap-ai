@@ -84,9 +84,36 @@ python -m nmap_ai
 
 ### Docker Installation
 
+> **Note**: The Docker image is currently being set up on Docker Hub. Until it's available, you can build the image locally using the instructions below.
+
+**Option 1: Pull from Docker Hub (Coming Soon)**
 ```bash
 docker pull yashabalam/nmap-ai:latest
 docker run -it --rm yashabalam/nmap-ai:latest
+```
+
+**Option 2: Build Locally (Current Recommended Method)**
+```bash
+# Clone the repository
+git clone https://github.com/yashab-cyber/nmap-ai.git
+cd nmap-ai
+
+# Build and run using Docker Compose
+docker-compose up nmap-ai
+
+# Or build manually
+./scripts/docker_build.sh build-prod
+docker run -it --rm -p 8080:8080 yashabalam/nmap-ai:latest
+```
+
+**Option 3: Using Docker with Volume Mounts**
+```bash
+# For persistent data
+docker run -it --rm \
+  -p 8080:8080 \
+  -v $(pwd)/data:/app/data \
+  -v $(pwd)/results:/app/results \
+  yashabalam/nmap-ai:latest
 ```
 
 ## 💻 Usage

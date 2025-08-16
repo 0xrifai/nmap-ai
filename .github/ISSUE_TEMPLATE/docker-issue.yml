@@ -1,0 +1,78 @@
+name: Docker Issue
+description: Report issues with Docker images or containers
+title: "[DOCKER] "
+labels: ["docker", "bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a Docker-related issue! Please provide as much detail as possible.
+        
+        **Note**: If you're trying to pull `yashabalam/nmap-ai:latest` and getting an error, the Docker image is currently being set up on Docker Hub. 
+        Please use the build-from-source instructions in the README until the automated publishing is complete.
+
+  - type: dropdown
+    id: docker-operation
+    attributes:
+      label: What Docker operation were you trying to perform?
+      options:
+        - Pulling image from Docker Hub
+        - Building image locally
+        - Running container
+        - Docker Compose
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe what you were trying to do and what went wrong
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: What did you expect to happen?
+      description: Describe what you expected to happen
+    validations:
+      required: true
+
+  - type: textarea
+    id: docker-command
+    attributes:
+      label: Docker Command Used
+      description: What Docker command did you run?
+      placeholder: |
+        docker pull yashabalam/nmap-ai:latest
+        docker run -it --rm yashabalam/nmap-ai:latest
+      render: shell
+
+  - type: textarea
+    id: error-output
+    attributes:
+      label: Error Output
+      description: Please copy and paste the complete error output
+      placeholder: Paste error output here
+      render: shell
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Information
+      description: |
+        Please provide information about your environment
+      placeholder: |
+        - OS: [e.g. Ubuntu 20.04, macOS 13.0, Windows 11]
+        - Docker version: [run `docker --version`]
+        - Architecture: [e.g. x86_64, arm64]
+      render: markdown
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here
