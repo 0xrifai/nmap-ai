@@ -13,7 +13,7 @@ This directory contains utility scripts and automation tools for NMAP-AI develop
 ### Deployment Scripts  
 - `install.sh` - Installation script for Linux/macOS
 - `install.bat` - Installation script for Windows
-- `docker_build.sh` - Build Docker containers
+- `docker_build.sh` - Build and manage Docker containers
 - `deploy.sh` - Deployment automation
 
 ### Utility Scripts
@@ -47,6 +47,21 @@ chmod +x scripts/*.sh
 
 # Build distribution
 ./scripts/build.sh
+```
+
+### Docker Operations
+```bash
+# Build development image
+./scripts/docker_build.sh build-dev
+
+# Build production image
+./scripts/docker_build.sh build-prod
+
+# Test Docker build
+./scripts/docker_build.sh test
+
+# Push to Docker Hub (requires login)
+./scripts/docker_build.sh push
 ```
 
 ### Installation

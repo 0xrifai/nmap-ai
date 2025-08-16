@@ -67,11 +67,26 @@ sudo ./install.sh
 
 ### Method 4: Docker Installation
 
-```bash
-# Pull pre-built image
-docker pull yashabalam/nmap-ai:latest
+> **Important**: Docker image setup is in progress. See [Docker Hub Setup Guide](docker-hub-setup.md) for maintainer instructions.
 
-# Run container
+**Current Status: Build Locally**
+```bash
+# Clone the repository
+git clone https://github.com/yashab-cyber/nmap-ai.git
+cd nmap-ai
+
+# Build and run with Docker Compose
+docker-compose up nmap-ai
+
+# Or use the build script
+./scripts/docker_build.sh build-prod
+docker run -it --rm -p 8080:8080 yashabalam/nmap-ai:latest
+```
+
+**Future: Pull from Docker Hub (Coming Soon)**
+```bash
+# This will work once the image is published
+docker pull yashabalam/nmap-ai:latest
 docker run -it --rm yashabalam/nmap-ai:latest
 
 # Run with volume mounting for persistent data
